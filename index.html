@@ -1,0 +1,137 @@
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<script type="text/javascript" src="jquery-glide-1.0.js"></script>
+
+<script type="text/javascript">
+var dc_slides = ["The Capitol", "Federal Agencies", "Monuments"]
+var metro_slides = ["Gallery Place", "Bethesda", "Smithsonian", "Fort Totten"]
+
+$(document).ready(function() {
+  $('#dc-slides').glide({
+    transition: 800,
+    autostart: true,
+    callback: function(index) {
+      $('#dc-current').text(dc_slides[index])
+    }
+  });
+  $('#dc-current').text(dc_slides[0])
+  
+  $('#metro-slides').glide({
+    transition: 1000,
+    duration: 1000,
+    autostart: false,
+    callback: function(index) {
+      $('#metro-current').text(metro_slides[index])
+    }
+  });
+  $('#metro-current').text(metro_slides[0])
+});
+</script>
+
+<style>
+body { 
+  margin: 0;
+  padding: 0;
+  font-family: arial,helvetica,sans-serif;
+  font-size: 10pt;
+  color: #fff;
+  background-color: #000;
+  text-align: center;
+}
+
+div#dc-slides, div#metro-slides {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 612px;
+  height: 160px;
+}
+
+div#metro-slides {
+  width: 316px;
+  height: 239px;
+}
+
+img {
+  float: left;
+  border: #fff solid 1px;
+  margin: 1px;
+  vertical-align: baseline;
+}
+
+div#dc-slides-controller, div#metro-slides-controller {
+  margin-left: auto;
+  margin-right: auto;
+  width: 132px;
+  height: 43px;
+}
+
+div#metro-slides-controller {
+  width: 176px;
+}
+
+div#dc-slides-controller div, div#metro-slides-controller div {
+  height: 32px;
+  width: 32px;
+  border: #aaa solid 1px;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+div#dc-slides-controller div.selected, div#metro-slides-controller div.selected {
+  border: #f00 solid 1px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- DC -->
+<div id="dc-slides">
+  <div>
+    <img src="assets/dc1.jpg">
+    <img src="assets/dc2.jpg">
+    <img src="assets/dc3.jpg">
+  </div>
+  <div>
+    <img src="assets/dc4.jpg">
+    <img src="assets/dc5.jpg">
+    <img src="assets/dc6.jpg">
+  </div>
+  <div>
+    <img src="assets/dc7.jpg">
+    <img src="assets/dc8.jpg">
+    <img src="assets/dc9.jpg">
+  </div>
+</div>
+
+<div id="dc-slides-controller">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<span id="dc-current"></span>
+
+<!-- Metro -->
+<div id="metro-slides">
+  <div><img src="assets/metro1.jpg"></div>
+  <div><img src="assets/metro2.jpg"></div>
+  <div><img src="assets/metro3.jpg"></div>
+  <div><img src="assets/metro4.jpg"></div>
+</div>
+
+<div id="metro-slides-controller">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<span id="metro-current"></span>
+
+</body>
+</html>
