@@ -37,13 +37,13 @@
 
     $(this).children().wrapAll('<div class="' + opts.css_classes.container + '"></div>').css({
       position: 'relative',
-      width: $(this).parent().width() + 'px',
-      height:  $(this).parent().height() + 'px',
+      width: this.width() + 'px',
+      height:  this.height() + 'px',
       float: 'left'
     }).parent().css({
       position: 'relative',
-      width: $(this).parent().width() * length + 'px',
-      height:  $(this).parent().height() + 'px',
+      width: this.parent().width() * length + 'px',
+      height:  this.parent().height() + 'px',
       overflow: 'hidden'
     })
 
