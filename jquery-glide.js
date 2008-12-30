@@ -1,7 +1,7 @@
 /* Copyright (c) 2008 Sean Soper
  * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
  * jquery-glide
- * Version: 1.0 (Dec 6, 2008)
+ * Version: 1.1 (Dec 30, 2008)
  * Requires: jQuery 1.2.6+
  */
 
@@ -16,6 +16,7 @@
       controller: null,
       autostart: true,
       callback: null,
+      initial_slide: 0,
       css_classes: {
         selected: 'selected',
         container: 'container'
@@ -23,9 +24,9 @@
     }
 
     var opts = $.extend(defaults, options)
-    var width = $(this).css('width') || opts.width
-    var height = $(this).css('height') || opts.height
-    var current = 0
+    var width = opts.width || $(this).css('width')
+    var height = opts.height || $(this).css('height')
+    var current = parseInt(opts.initial_slide)
     var timer = null
     var length = $(this).children().length
     var controller = opts.controller || '#' + this[0].id + '-controller'
@@ -91,6 +92,7 @@
       }, opts.duration)
     }
 
+    current != 0 && current-- && next(this)
     opts.autostart && dotimer(this)
   }
 
