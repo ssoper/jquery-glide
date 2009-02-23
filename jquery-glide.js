@@ -89,7 +89,7 @@
 
       timer = setInterval(function() {
         next(elem)
-      }, opts.duration)
+      }, opts.transition + opts.duration)
     }
 
     current != 0 && current-- && next(this)
